@@ -1,0 +1,83 @@
+
+****************************************
+Part A
+
+Linear Regression - 
+	Training Accuracy: 0.860781730347
+	Testing Accuracy: 0.82395087001
+
+SVM -
+	Training Accuracy: 1.0
+	Testing Accuracy: 0.802456499488
+
+MLP - 
+	Training Accuracy: 0.946859903382
+	Testing Accuracy: 0.805527123849
+
+Random Forest - 
+	Training Accuracy: 0.99604743083
+	Testing Accuracy: 0.949846468782
+
+****************************************
+Part B - Hyperparameter tuning
+
+Random Forest - 
+	n_estimators: 
+		What it does (at most 25 words): It's the number of trees used in the randomforest learner. Usually more number of trees result in better accuracy for the model.
+		Values tested (at least 3): [20,30,40,50,60]
+
+	max_depth: 
+		What it does: The depth determines how many splits occur. Too many splits may result in overfitting. Two few may result in underfitting.
+		Values tested (at least 3): [4,5,6,7,8,9,10]
+		
+	Best combination of parameter values:
+		n_estimators: 50
+		max_depth: 10
+
+	Testing Accuracy before tuning (default parameters): 0.949846468782
+	Testing Accuracy after tuning: 0.961791831357
+
+
+SVM -
+	Kernels: 
+		What it does: The function of kernel is to take data as input and transform it into the required form. The most used type of kernel function is RBF. Because it has localized and finite response along the entire x-axis.
+		Values tested: rbf, linear
+	C: 
+		What it does: Higher c value means optimization will choose a smaller-margin hyperplane classifying all training data correctly. Lower c value will misclassify more points. 
+		Values tested (at least 3): [0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0]
+		
+	Best combination of parameter values: 
+		Kernel: 'linear'
+		C: 0.0001
+	
+	Testing Accuracy before tuning  (default parameters): 0.802456499488
+	Testing Accuracy after tuning: 0.802371541502
+
+
+****************************************
+Part C
+
+For your SVM's CV run from part B, state the highest mean testing accuracy 
+across the sets of parameter values and its corresponding mean train score and mean fit time. 
+
+SVM's highest mean testing/cross-validated accuracy: 80%
+SVM's mean train score: 80%
+SVM's mean fit time: 0.88869998
+
+****************************************
+Part D
+
+Tuned SVM's testing accuracy BEFORE preprocessing: 0.841351074719
+Tuned SVM's testing accuracy AFTER preprocessing: 0.802456499488
+Why you think it increased, decreased, or stayed the same: The accuracy decreased. The reason behind this could be the model needs more training. The current training may involve some irrelevant feature that could make the un-normalized model perform better.
+
+****************************************
+Part E
+
+Best Classifier: The random forest classifier with n_estimators = 50 and max_depth = 10 performed the best. 
+Why: It performed the best because the accuracy on the test data is way better with random forest with n_estimators = 50 and max_depth = 10. No other classifier reached even close to the accuracy achieved here. 
+
+
+
+
+
